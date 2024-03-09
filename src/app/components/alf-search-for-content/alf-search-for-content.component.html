@@ -2,7 +2,7 @@
 <h3>This will provide a link to open an alfresco document</h3>
 <h3>related to the patient</h3>
 <div style="width:max-content">
-<form class="example-form">
+<form class="example-form" (keyup.enter)="enterPressed()">
   <mat-form-field class="example-full-width">
     <mat-label>Message</mat-label>
     <input matInput #message maxlength="256" placeholder="Enter Patient info or CASE">
@@ -10,7 +10,7 @@
     <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
   </mat-form-field>
 </form>
-<div *ngIf="true" style="width:300px;">
+<div *ngIf="showTable" style="width:300px;">
   <table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -50,7 +50,7 @@
     <!-- alfresco Column -->
     <ng-container matColumnDef="Alfresco">
       <th mat-header-cell *matHeaderCellDef> Alfresco Link </th>
-      <td mat-cell *matCellDef="let element"> <a (click)="goToLink('{{element.Alfresco}}')" href="">{{element.name}} images</a> </td>
+      <td mat-cell *matCellDef="let element"> <a (click)="goToLink('http://rwilds741.alfdemo.com/digital-workspace/#/search;q=Medical/(viewer:view/7616bb0e-9d10-4bf0-928a-e6242e5a9f0d)?location=%2Fsearch;q%3DMedical')">{{element.name}} images</a> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -58,5 +58,5 @@
   </table>
 </div>
 
-<iframe src="http://localhost/share/page/" style="width:100%;height:400px"></iframe>
+
 </div>

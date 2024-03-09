@@ -54,7 +54,7 @@ export class AlfSearchForContentComponent {
 
 
   value = 'Clear me';
-  confirm:boolean = true;
+  showTable:boolean = false;
 
 
   hideRequiredControl = new FormControl(false);
@@ -70,8 +70,12 @@ export class AlfSearchForContentComponent {
     return this.floatLabelControl.value || 'auto';
   }
 
+  enterPressed(){
+    this.showTable = true;
+
+  }
   goToLink(url: string){
-    window.open(url);
+    window.open(url,'_blank');
 }
 
 }
