@@ -24,9 +24,9 @@ const ELEMENT_DATA: patientInfo[] = [
     name: 'Robert Wilds',
     address: '123 anywhere street orlando fl',
     SSnumber: 'xxx-xx-1234',
-    caseID: 'CASE-1234',
+    caseID: 'CASE-13644',
     Alfresco: 'http://rwilds741.alfdemo.com/share/page/',
-    Alfresconode: '7616bb0e-9d10-4bf0-928a-e6242e5a9f0d'
+    Alfresconode: 'c4eaf74b-02d4-45fa-9218-0731e85cdde1'
 }
 
 ];
