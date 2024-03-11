@@ -10,7 +10,7 @@
     <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
   </mat-form-field>
 </form>
-<div *ngIf="showTable" style="width:300px;">
+<div *ngIf="showTable" style="width:800px;">
   <table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -46,11 +46,16 @@
       <td mat-cell *matCellDef="let element"> {{element.caseID}} </td>
     </ng-container>
 
-
     <!-- alfresco Column -->
     <ng-container matColumnDef="Alfresco">
       <th mat-header-cell *matHeaderCellDef> Alfresco Link </th>
-      <td mat-cell *matCellDef="let element"> <a (click)="goToLink('http://rwilds741.alfdemo.com/digital-workspace/#/search;q=Medical/(viewer:view/7616bb0e-9d10-4bf0-928a-e6242e5a9f0d)?location=%2Fsearch;q%3DMedical')">{{element.name}} images</a> </td>
+      <td mat-cell *matCellDef="let element"> <a (click)="goToLink('http://rwilds741.alfdemo.com/digital-workspace/#/search;q=/(viewer:view/7616bb0e-9d10-4bf0-928a-e6242e5a9f0d)')">{{element.name}} images</a> </td>
+    </ng-container>
+
+    <!-- alfresco node Column -->
+    <ng-container matColumnDef="Alfresconode">
+      <th mat-header-cell *matHeaderCellDef> Alfresco node ID</th>
+      <td mat-cell *matCellDef="let element" style="width:300px">{{element.Alfresconode}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

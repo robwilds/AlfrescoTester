@@ -15,6 +15,7 @@ export interface patientInfo {
   SSnumber: string;
   caseID:string;
   Alfresco: string;
+  Alfresconode: string;
 }
 
 const ELEMENT_DATA: patientInfo[] = [
@@ -24,7 +25,8 @@ const ELEMENT_DATA: patientInfo[] = [
     address: '123 anywhere street orlando fl',
     SSnumber: 'xxx-xx-1234',
     caseID: 'CASE-1234',
-    Alfresco: 'http://rwilds741.alfdemo.com/share/page/'
+    Alfresco: 'http://rwilds741.alfdemo.com/share/page/',
+    Alfresconode: '7616bb0e-9d10-4bf0-928a-e6242e5a9f0d'
 }
 
 ];
@@ -49,7 +51,7 @@ const ELEMENT_DATA: patientInfo[] = [
 })
 export class AlfSearchForContentComponent {
 
-  displayedColumns: string[] = ['position', 'name', 'address', 'SSnumber', 'caseID','Alfresco'];
+  displayedColumns: string[] = ['position', 'name', 'address', 'SSnumber', 'caseID','Alfresco','Alfresconode'];
   dataSource = ELEMENT_DATA;
 
 
