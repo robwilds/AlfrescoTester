@@ -1,5 +1,11 @@
 # Lookup
 
+be sure to create a .env file with BASE_URL set to your alfresco install
+
+There's a service created that will query your alfresco instance via REST API for values.  you must pass your query statement to the service.  the base url comes from the .env file
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
 
 ## Development server
