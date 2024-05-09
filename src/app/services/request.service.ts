@@ -6,19 +6,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RequestService {
 
-  public queryString:string = "";
-  public queryPath:string = "";
-  public queryResult:any = "";
+  auth = process.env["PASSENCODE"];
+  baseURL = process.env["BASE_URL"];
 
   constructor(private http: HttpClient) { }
 
-  async query(){
-
+  public async postQuery(queryPath:any,postBody:any){
     const headers = new HttpHeaders()
     .set("Content-Type", "application/json")
-    .set("Authorization", "Basic " + process.env["PASSENCODE"]) //ZGVtbzpkZW1v");
+    .set("Authorization", "Basic " + this.auth) //ZGVtbzpkZW1v
 
-    const holdval = await this.http.post(process.env["BASE_URL"] + this.queryPath, this.queryString, { headers });
-    this.queryResult = holdval;
+    const returnVal = await this.http.post(this.baseURL + queryPath, postBody, { headers });
+    return returnVal;
   }
+
+  public async getQuery(queryPath:any){
+    const headers = new HttpHeaders()
+    .set("Content-Type", "application/json")
+    .set("Authorization", "Basic " + this.auth) //ZGVtbzpkZW1v
+
+    const returnVal = await this.http.get(this.baseURL + queryPath, { headers });
+    return returnVal;
+  }
+
 }

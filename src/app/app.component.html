@@ -9,20 +9,20 @@
 	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
 		<mat-nav-list>
 			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
-				<span class="full-width" *ngIf="isExpanded || isShowing">Patient Menu</span>
+				<span class="full-width" *ngIf="isExpanded || isShowing">Functions</span>
 				<mat-icon mat-list-icon>home</mat-icon>
 				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 			</mat-list-item>
 			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-				<a mat-list-item routerLink="alfsearchforcontent">Medical Record Look Up</a>
-				<a mat-list-item >Account Look Up</a>
+				<a mat-list-item routerLink="peoplegroups">People Groups</a>
+        <a mat-list-item routerLink="peoplegroups">Search for content</a>
 				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
 					<span class="full-width" *ngIf="isExpanded || isShowing">Other Functions</span>
 					<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
 				</mat-list-item>
 				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
 					<mat-list-item>Alfresco Site Info</mat-list-item>
-					<mat-list-item>Query Audit</mat-list-item>
+					<mat-list-item routerLink="queryAudit">Query Audit</mat-list-item>
 				</div>
 			</div>
 		</mat-nav-list>

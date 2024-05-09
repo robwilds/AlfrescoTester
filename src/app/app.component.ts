@@ -17,12 +17,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIcon } from '@angular/material/icon';
+import { QueryAuditComponent } from './components/query-audit/query-audit.component';
+import { QueryPeopleGroupsComponent } from './components/query-people-groups/query-people-groups.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatIcon,ReactiveFormsModule,MatSelectModule,MatRadioModule,MatCheckboxModule,MatLabel,MatHint,MatInputModule,MatFormFieldModule,FormsModule,RouterModule,MatToolbarModule,MatSidenavModule,MatIconModule,CommonModule,MatListModule,MatSlideToggleModule,RouterOutlet],
+  imports: [QueryAuditComponent,QueryPeopleGroupsComponent,MatIcon,ReactiveFormsModule,MatSelectModule,MatRadioModule,MatCheckboxModule,MatLabel,MatHint,MatInputModule,MatFormFieldModule,FormsModule,RouterModule,MatToolbarModule,MatSidenavModule,MatIconModule,CommonModule,MatListModule,MatSlideToggleModule,RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
