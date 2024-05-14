@@ -9,6 +9,11 @@ import { CommonModule } from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+export interface peoplegps {
+  user: string;
+  status: number;
+  group: number;
+}
 @Component({
   selector: 'app-query-people-groups',
   standalone: true,
@@ -22,19 +27,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     ReactiveFormsModule,
     CommonModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   templateUrl: './query-people-groups.component.html',
   styleUrl: './query-people-groups.component.css'
 })
 
-
 export class QueryPeopleGroupsComponent{
 
   constructor(private http: HttpClient){}
 
+  displayedColumns: string[] = ['user', 'status', 'group'];
+
   //auth = process.env["PASSENCODE"];
-  baseURL = 'http://localhost:5000' //process.env["BASE_URL"];
+  baseURL = 'http://127.0.0.1:5000' //process.env["BASE_URL"];
   onlineQueryPath = '/alfresco/api/-default-/public/alfresco/versions/1/people?skipCount=0&maxItems=10000';
   localQueryPath = '/peoplegroups'
   peopleGroupData:any;
@@ -44,22 +50,15 @@ export class QueryPeopleGroupsComponent{
   result:any;
 
   enterPressed(username?:any){
-    this.showTable = true;
+
     alert("enter pressed with value " + this.userName);
 
-    //this.result = RequestService.getQuery('/alfresco/api/-default-/public/alfresco/versions/1/people?skipCount=0&maxItems=10000')
-
-    const headers = new HttpHeaders()
-    .set("Content-Type", "application/json")
-    //.set("Authorization", "Basic " + this.auth) //ZGVtbzpkZW1v
-    //alert (returnVal);
-
     //now call the api endpoint to get the people group info
-    //const returnVal = this.http.get(this.baseURL + '/peoplegroups');
-    this.http.get(this.baseURL + '/peoplegroups',{headers}).subscribe(data =>
+    this.http.get<peoplegps>(this.baseURL + '/peoplegroups').subscribe(data =>
       {
         this.peopleGroupData = data;
-        alert(this.peopleGroupData);
+        //alert(this.peopleGroupData);
+        this.showTable = true;
       })
 
     }
