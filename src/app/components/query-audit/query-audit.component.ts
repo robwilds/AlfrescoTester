@@ -45,7 +45,7 @@ nodeID:string = "";
 auditEntryForNodeData:any;
 displayedColumns: string[] = ['user', 'details', 'entryDate'];
 
-baseURL = 'http://127.0.0.1:5000/auditentryfornode?nodeid=' //process.env["BASE_URL"];
+baseURL = 'http://127.0.0.1:5202/auditentryfornode?nodeid=' //process.env["BASE_URL"];
 
 enterPressed(node?:any){
   this.showTable = true;

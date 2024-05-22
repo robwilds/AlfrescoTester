@@ -40,7 +40,7 @@ export class QueryPeopleGroupsComponent{
   displayedColumns: string[] = ['user', 'status', 'group'];
 
   //auth = process.env["PASSENCODE"];
-  baseURL = 'http://127.0.0.1:5000' //process.env["BASE_URL"];
+  baseURL = 'http://127.0.0.1:5202' //process.env["BASE_URL"];
   onlineQueryPath = '/alfresco/api/-default-/public/alfresco/versions/1/people?skipCount=0&maxItems=10000';
   localQueryPath = '/peoplegroups'
   peopleGroupData:any;
