@@ -1,6 +1,19 @@
 <h1>Enter NODEID below to see audit information for that node (using access)</h1>
     <input [(ngModel)]='nodeID' [value]="nodeID" matInput placeholder="Enter NodeID" (keydown.enter)="enterPressed()">
+    <div *ngIf="showLoading">RUNNING</div>
 <!-- enter table below -->
+<!-- <table>
+  <tr>
+    <th>user</th>
+    <th>Details</th>
+    <th>Date</th>
+  </tr>
+ <tr *ngFor="let item of auditEntryForNodeData">
+      <td>{{item.user}}</td>
+      <td>{{item.details}}</td>
+      <td>{{item.entryDate}}</td>
+ </tr>
+</table> -->
 <table *ngIf="showTable" mat-table [dataSource]="auditEntryForNodeData" class="mat-elevation-z8">
 
   <ng-container matColumnDef="user">
