@@ -47,15 +47,15 @@ showLoading:boolean = false;
 nodeID:string = "0e0a3eba-3734-460f-a406-eb79eb6d2955";
 auditEntryForNodeData:any;
 displayedColumns: string[] = ['user', 'details', 'entryDate'];
-
-baseURL = 'http://127.0.0.1:5202/auditentryfornode?nodeid=' //process.env["BASE_URL"];
+queryPath = "/auditentryfornode?nodeid="
+baseURL = 'http://127.0.0.1:5202' //process.env["BASE_URL"];
 
 enterPressed(node?:any){
   //alert("enter pressed with value " + this.nodeID);
   this.showLoading = true;
 
   //now call the routine to get the audit information for that node
-this.http.get<auditData>(this.baseURL + this.nodeID).subscribe(data =>
+this.http.get<auditData>(this.baseURL + this.queryPath + this.nodeID).subscribe(data =>
   {
     this.showTable = true;
     this.auditEntryForNodeData = data;
